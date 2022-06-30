@@ -9,10 +9,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBarTab = ({ children, link }) => {
+const AppBarTab = ({ children, link, onPress }) => {
   return (
     <Pressable style={styles.container}>
-      <Link to={link}>
+      <Link to={link || ""} onPress={onPress}>
         <Text primary subheading bold style={{ color: "#fff" }}>
           {children}
         </Text>
