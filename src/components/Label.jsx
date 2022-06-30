@@ -16,10 +16,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const Label = ({ children }) => {
+const Label = ({ children, ...props }) => {
   return (
     <View style={styles.container}>
-      <Text heading style={styles.text}>
+      <Text heading style={styles.text} {...props}>
         {children}
       </Text>
     </View>

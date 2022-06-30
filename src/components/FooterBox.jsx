@@ -1,5 +1,7 @@
 import { StyleSheet, View } from "react-native";
+
 import Text from "./Text";
+import { formattedValue } from "../utils/misc";
 
 const styles = StyleSheet.create({
   container: {
@@ -7,18 +9,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const FooterBox = ({ label, value }) => {
-  const formattedValue = (value) => {
-    if (value >= 1000) {
-      return Math.round(value / 100) / 10 + "k";
-    }
-
-    return value;
-  };
-
+const FooterBox = ({ label, testID, value }) => {
   return (
     <View style={styles.container}>
-      <Text bold heading>
+      <Text bold heading testID={testID}>
         {formattedValue(value)}
       </Text>
       <Text secondary>{label}</Text>

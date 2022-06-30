@@ -45,18 +45,28 @@ const RepositoryItem = ({ item }) => {
       <View style={styles.header}>
         <Image style={styles.avatar} source={{ uri: ownerAvatarUrl }} />
         <View style={styles.description}>
-          <Text subheading bold>
+          <Text subheading bold testID="fullName">
             {fullName}
           </Text>
-          <Text secondary>{description}</Text>
-          <Label>{language}</Label>
+          <Text secondary testID="description">
+            {description}
+          </Text>
+          <Label testID="language">{language}</Label>
         </View>
       </View>
       <View style={styles.footer}>
-        <FooterBox label="Stars" value={stargazersCount} />
-        <FooterBox label="Forks" value={forksCount} />
-        <FooterBox label="Reviews" value={reviewCount} />
-        <FooterBox label="Rating" value={ratingAverage} />
+        <FooterBox
+          label="Stars"
+          value={stargazersCount}
+          testID="stargazersCount"
+        />
+        <FooterBox label="Forks" value={forksCount} testID="forksCount" />
+        <FooterBox label="Reviews" value={reviewCount} testID="reviewCount" />
+        <FooterBox
+          label="Rating"
+          value={ratingAverage}
+          testID="ratingAverage"
+        />
       </View>
     </View>
   );
