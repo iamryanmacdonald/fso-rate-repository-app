@@ -9,13 +9,16 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 1,
     height: 40,
-    marginBottom: 15,
+    marginTop: 15,
     paddingHorizontal: 10,
+  },
+  error: {
+    borderColor: theme.colors.error,
   },
 });
 
 const TextInput = ({ style, error, ...props }) => {
-  const textInputStyle = [styles.input, style];
+  const textInputStyle = [styles.input, error && styles.error, style];
 
   return (
     <NativeTextInput

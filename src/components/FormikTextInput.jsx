@@ -3,11 +3,13 @@ import { StyleSheet } from "react-native";
 
 import Text from "./Text";
 import TextInput from "./TextInput";
+import theme from "../theme";
 
 const styles = StyleSheet.create({
   errorText: {
+    color: theme.colors.error,
     marginTop: 5,
-  }
+  },
 });
 
 const FormikTextInput = ({ name, ...props }) => {
