@@ -1,8 +1,9 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, Linking, Pressable, StyleSheet, View } from "react-native";
 
 import FooterBox from "./FooterBox";
 import Label from "./Label";
 import Text from "./Text";
+import theme from "../theme";
 
 const styles = StyleSheet.create({
   container: {
@@ -26,9 +27,21 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginTop: 20,
   },
+  button: {
+    backgroundColor: theme.colors.primary,
+    borderRadius: 5,
+    height: 40,
+    marginTop: 15,
+  },
+  buttonText: {
+    color: "#ffffff",
+    height: "100%",
+    lineHeight: 40,
+    textAlign: "center",
+  },
 });
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, single }) => {
   const {
     description,
     forksCount,
@@ -38,6 +51,7 @@ const RepositoryItem = ({ item }) => {
     ratingAverage,
     reviewCount,
     stargazersCount,
+    url
   } = item;
 
   return (
@@ -68,6 +82,13 @@ const RepositoryItem = ({ item }) => {
           testID="ratingAverage"
         />
       </View>
+      {single && (
+        <Pressable style={styles.button} onPress={() => Linking.openURL(url)}>
+          <Text style={styles.buttonText} subheading bold>
+            Open in GitHub
+          </Text>
+        </Pressable>
+      )}
     </View>
   );
 };
